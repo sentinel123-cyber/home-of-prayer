@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CapCut Video Editing Quiz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0c0d10;
+            color: #e2e8f0;
+        }
+        .quiz-card {
+            background-color: #121316;
+            border-color: #2d3748;
+        }
+        .question-card {
+            background-color: #0d0e11;
+            border-color: #2d3748;
+        }
+        .option-label {
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+            border-color: #4a5568;
+            position: relative;
+            overflow: hidden;
+            background-color: #1a202c;
+        }
+        .option-label:hover {
+            background-color: #252c38;
+        }
+        input[type="radio"]:checked + .option-label {
+            background-color: #2f405c;
+            border-color: #4f7396;
+        }
+        .correct-answer {
+            background-color: #163625 !important;
+            border-color: #2f855a !important;
+        }
+        .wrong-answer {
+            background-color: #4a1919 !important;
+            border-color: #c53030 !important;
+        }
+
+        /* Animation for icons */
+        .animated-icon {
+            position: absolute;
+            top: 50%;
+            right: 1.5rem;
+            transform: translateY(-50%) scale(0);
+            transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            opacity: 0;
+        }
+        .animated-icon.show {
+            transform: translateY(-50%) scale(1);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4 sm:p-8">
+
+    <div class="container mx-auto quiz-card rounded-3xl shadow-2xl p-6 sm:p-12 border-2">
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-center mb-4 text-emerald-400">CapCut Video Editing Quiz</h1>
+        <p class="text-center text-lg sm:text-xl mb-8 text-gray-400">Test your video editing knowledge with these questions!</p>
+
+        <form id="quizForm">
+            <!-- Question Section -->
+            <div class="mb-10">
+                <!-- Q1 -->
+                <div class="question-card p-6 rounded-xl border-2 mb-6">
+                    <p class="font-semibold text-lg sm:text-xl mb-4">1. What is the main thing the "Split" tool (the scissors icon) does on your video timeline?</p>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <input type="radio" id="q1a" name="q1" value="a" class="hidden">
+                            <label for="q1a" class="option-label w-full p-4 rounded-xl border-2">
+                                <span class="font-medium">a)</span> It cuts a video clip into two separate parts.
+                                <span class="animated-icon"></span>
+                            </label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" id="q1b" name="q1" value="b" class="hidden">
+                            <label for="q1b" class="option-label w-full p-4 rounded-xl border-2">
+                                <span class="font-medium">b)</span> It deletes a part of your video.
+                                <span class="animated-icon"></span>
+                            </label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" id="q1c" name="q1" value="c" class="hidden">
+                            <label for="q1c" class="option-label w-full p-4 rounded-xl border-2">
+                                <span class="font-medium">c)</span> It makes your video longer.
+                                <span class="animated-icon"></span>
+                            </label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" id="q1d" name="q1" value="d" class="hidden">
+                            <label for="q1d" class="option-label w-full p-4 rounded-xl border-2">
+                                <span class="font-medium">d)</span> It adds a new clip.
+                                <span class="animated-icon"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="question-card p-6 rounded-xl border-2 mb-6">
+                    <p class="font-semibold text-lg sm:text-xl mb-4">2. If you want to edit the sound and the video of a clip separately, what do you do to them?</p>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <input type="radio" id="q2a" name="q2" value="a" class="hidden">
+                            <label for="q2a" class="option-label w-full p-4 rounded-xl border-2">
+                                <span class="font-medium">a)</span> You delete the audio.
+                                <span class="animated-icon"></span>
+                            </label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" id="q2b" name="q2" value="b" class="hidden">
+                            <label for="q2b" class="option-label w-full p-4 rounded-xl border-2">
+                                <span class="font-medium">b)</span> You mute the clip.
+                                <span class="animated-icon"></span>
+                            </label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" id="q2c" name="q2" value="c" class="hidden">
+                            <label for="q2c" class="option-label w-full p-4 rounded-xl border-2">
+                                <span class="font-medium">c)</span> You detach the audio.
+                                <span class="animated-icon"></span>
+                            </label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" id="q2d" name="q2" value="d" class="hidden">
+                            <label for="q2d" class="option-label w-full p-4 rounded-xl border-2">
+                                <span class="font-medium">d)</span> You split the clip.
+                                <span class="animated-icon"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="question-card p-6 rounded-xl border-2 mb-6">
+                    <p class="font-semibold text-lg sm:text-xl mb-4">3. How do you add a title or words to your video?</p>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <input type="radio" id="q3a" name="q3" value="a" class="hidden">
+                            <label for="q3a" class="option-label w-full p-4 rounded-xl border-2">
+                                <span class="font-medium">a)</span> You tap the "Text" button.
+                                <span class="animated-icon"></span>
+                            </label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" id="q3b" name="q3" value="b" class="hidden">
+                            <label for="q3b" class="option-label w-full p-4 rounded-xl border-2">
+                                <span class="font-medium">b)</span> You use the "Split" tool.
+                                <span class="animated-icon"></span>
+                            </label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" id="q3c" name="q3" value="c" class="hidden">
+                            <label for="q3c" class="option-label w-full p-4 rounded-xl border-2">
+                                <span class="font-medium">c)</span> You use the "Audio" button.
+                                <span class="animated-icon"></span>
+                            </label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" id="q3d" name="q3" value="d" class="hidden">
+                            <label for="q3d" class="option-label w-full p-4 rounded-xl border-2">
+                                <span class="font-medium">d)</span> You use the "Canvas" button.
+                                <span class="animated-icon"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="question-card p-6 rounded-xl border-2 mb-6">
+                    <p class="font-semibold text-lg sm:text-xl mb-4">4. What is the main button you tap to put another video or picture on top of your current video?</p>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <input type="radio" id="q4a" name="q4" value="a" class="hidden">
+                            <label for="q4a" class="option-label w-full p-4 rounded-xl border-2">
+                                <span class="font-medium">a)</span> The "Text" button.
+                                <span class="animated-icon"></span>
+                            </label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" id="q4b" name="q4" value="b" class="hidden">
+                            <label for="q4b" class="option-label w-full p-4 rounded-xl border-2">
+                                <span class="font-medium">b)</span> The "Audio" button.
+                                <span class="animated-icon"></span>
+                            </label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" id="q4c" name="q4" value="c" class="hidden">
+                            <label for="q4c" class="option-label w-full p-4 rounded-xl border-2">
+                                <span class="font-medium">c)</span> The "Overlay" button.
+                                <span class="animated-icon"></span>
+                            </label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" id="q4d" name="q4" value="d" class="hidden">
+                            <label for="q4d" class="option-label w-full p-4 rounded-xl border-2">
+                                <span class="font-medium">d)</span> The "Effects" button.
+                                <span class="animated-icon"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q5 -->
+                <div class="question-card p-6 rounded-xl border-2 mb-6">
+                    <p class="font-semibold text-lg sm:text-xl mb-4">5. What is the "Chroma Key" tool used for?</p>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <input type="radio" id="q5a" name="q5" value="a" class="hidden">
+                            <label for="q5a" class="option-label w-full p-4 rounded-xl border-2">
+                                <span class="font-medium">a)</span> To change the color of your video.
+                                <span class="animated-icon"></span>
+                            </label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" id="q5b" name="q5" value="b" class="hidden">
+                            <label for="q5b" class="option-label w-full p-4 rounded-xl border-2">
+                                <span class="font-medium">b)</span> To remove a solid green or blue background.
+                                <span class="animated-icon"></span>
+                            </label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" id="q5c" name="q5" value="c" class="hidden">
+                            <label for="q5c" class="option-label w-full p-4 rounded-xl border-2">
+                                <span class="font-medium">c)</span> To add a special effect to your video.
+                                <span class="animated-icon"></span>
+                            </label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" id="q5d" name="q5" value="d" class="hidden">
+                            <label for="q5d" class="option-label w-full p-4 rounded-xl border-2">
+                                <span class="font-medium">d)</span> To create a clone of a person.
+                                <span class="animated-icon"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q6 -->
+                <div class="question-card p-6 rounded-xl border-2 mb-6">
+                    <p class="font-semibold text-lg sm:text-xl mb-4">6. If your video has a lot of background noise like wind, which feature is best for cleaning up the sound?</p>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <input type="radio" id="q6a" name="q6" value="a" class="hidden">
+                            <label for="q6a" class="option-label w-full p-4 rounded-xl border-2">
+                                <span class="font-medium">a)</span> Audio Ducking.
+                                <span class="animated-icon"></span>
+                            </label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" id="q6b" name="q6" value="b" class="hidden">
+                            <label for="q6b" class="option-label w-full p-4 rounded-xl border-2">
+                                <span class="font-medium">b)</span> Noise Reduction.
+                                <span class="animated-icon"></span>
+                            </label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" id="q6c" name="q6" value="c" class="hidden">
+                            <label for="q6c" class="option-label w-full p-4 rounded-xl border-2">
+                                <span class="font-medium">c)</span> Fade In.
+                                <span class="animated-icon"></span>
+                            </label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" id="q6d" name="q6" value="d" class="hidden">
+                            <label for="q6d" class="option-label w-full p-4 rounded-xl border-2">
+                                <span class="font-medium">d)</span> Muting the clip.
+                                <span class="animated-icon"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Q7 -->
+                <div class="question-card p-6 rounded-xl border-2 mb-6">
+                    <p class="font-semibold text-lg sm:text-xl mb-4">7. What's the difference between a "Transition" and an "Animation"?</p>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <input type="radio" id="q7a" name="q7" value="a" class="hidden">
+                            <label for="q7a" class="option-label w-full p-4 rounded-xl border-2">
+                                <span class="font-medium">a)</span> They are the same thing.
+                                <span class="animated-icon"></span>
+                            </label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" id="q7b" name="q7" value="b" class="hidden">
+                            <label for="q7b" class="option-label w-full p-4 rounded-xl border-2">
+                                <span class="font-medium">b)</span> A transition is between two clips, an animation is on one single thing, like text.
+                                <span class="animated-icon"></span>
+                            </label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" id="q7c" name="q7" value="c" class="hidden">
+                            <label for="q7c" class="option-label w-full p-4 rounded-xl border-2">
+                                <span class="font-medium">c)</span> Transitions are only for video, and animations are only for sound.
+                                <span class="animated-icon"></span>
+                            </label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" id="q7d" name="q7" value="d" class="hidden">
+                            <label for="q7d" class="option-label w-full p-4 rounded-xl border-2">
+                                <span class="font-icon">d)</span> Transitions are for text, and animations are for images.
+                                <span class="animated-icon"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q8 -->
+                <div class="question-card p-6 rounded-xl border-2 mb-6">
+                    <p class="font-semibold text-lg sm:text-xl mb-4">8. How do you add a song or music to your video?</p>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <input type="radio" id="q8a" name="q8" value="a" class="hidden">
+                            <label for="q8a" class="option-label w-full p-4 rounded-xl border-2">
+                                <span class="font-medium">a)</span> You have to import it from your computer.
+                                <span class="animated-icon"></span>
+                            </label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" id="q8b" name="q8" value="b" class="hidden">
+                            <label for="q8b" class="option-label w-full p-4 rounded-xl border-2">
+                                <span class="font-medium">b)</span> You tap the "Audio" button and choose a song.
+                                <span class="animated-icon"></span>
+                            </label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" id="q8c" name="q8" value="c" class="hidden">
+                            <label for="q8c" class="option-label w-full p-4 rounded-xl border-2">
+                                <span class="font-medium">c)</span> You use a transition.
+                                <span class="animated-icon"></span>
+                            </label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" id="q8d" name="q8" value="d" class="hidden">
+                            <label for="q8d" class="option-label w-full p-4 rounded-xl border-2">
+                                <span class="font-medium">d)</span> You use the "Canvas" button.
+                                <span class="animated-icon"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q9 -->
+                <div class="question-card p-6 rounded-xl border-2 mb-6">
+                    <p class="font-semibold text-lg sm:text-xl mb-4">9. To make your video look vintage or a different color, which feature would you use?</p>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <input type="radio" id="q9a" name="q9" value="a" class="hidden">
+                            <label for="q9a" class="option-label w-full p-4 rounded-xl border-2">
+                                <span class="font-medium">a)</span> Audio.
+                                <span class="animated-icon"></span>
+                            </label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" id="q9b" name="q9" value="b" class="hidden">
+                            <label for="q9b" class="option-label w-full p-4 rounded-xl border-2">
+                                <span class="font-medium">b)</span> Filters.
+                                <span class="animated-icon"></span>
+                            </label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" id="q9c" name="q9" value="c" class="hidden">
+                            <label for="q9c" class="option-label w-full p-4 rounded-xl border-2">
+                                <span class="font-medium">c)</span> Adjust.
+                                <span class="animated-icon"></span>
+                            </label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" id="q9d" name="q9" value="d" class="hidden">
+                            <label for="q9d" class="option-label w-full p-4 rounded-xl border-2">
+                                <span class="font-medium">d)</span> The speed tool.
+                                <span class="animated-icon"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Q10 -->
+                <div class="question-card p-6 rounded-xl border-2">
+                    <p class="font-semibold text-lg sm:text-xl mb-4">10. If your video is too dark, which tool do you use to make it brighter or change its colors?</p>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <input type="radio" id="q10a" name="q10" value="a" class="hidden">
+                            <label for="q10a" class="option-label w-full p-4 rounded-xl border-2">
+                                <span class="font-medium">a)</span> The "Adjust" tool.
+                                <span class="animated-icon"></span>
+                            </label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" id="q10b" name="q10" value="b" class="hidden">
+                            <label for="q10b" class="option-label w-full p-4 rounded-xl border-2">
+                                <span class="font-medium">b)</span> The "Filters" tool.
+                                <span class="animated-icon"></span>
+                            </label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" id="q10c" name="q10" value="c" class="hidden">
+                            <label for="q10c" class="option-label w-full p-4 rounded-xl border-2">
+                                <span class="font-medium">c)</span> The "Speed" tool.
+                                <span class="animated-icon"></span>
+                            </label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" id="q10d" name="q10" value="d" class="hidden">
+                            <label for="q10d" class="option-label w-full p-4 rounded-xl border-2">
+                                <span class="font-medium">d)</span> The "Split" tool.
+                                <span class="animated-icon"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="w-full bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white font-bold py-4 rounded-xl text-lg sm:text-xl transition-all duration-300 transform hover:scale-105 shadow-lg">Submit Answers</button>
+        </form>
+
+        <div id="results" class="mt-10 hidden">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-center mb-4 text-emerald-400">Your Results</h2>
+            <div id="score" class="text-xl sm:text-2xl font-semibold text-center mb-6"></div>
+            <div id="feedback" class="text-lg text-center mb-6"></div>
+        </div>
+    </div>
+
+    <script>
+        // Define the correct answers for each question.
+        const correctAnswers = {
+            q1: 'a',
+            q2: 'c',
+            q3: 'a',
+            q4: 'c',
+            q5: 'b',
+            q6: 'b',
+            q7: 'b',
+            q8: 'b',
+            q9: 'b',
+            q10: 'a'
+        };
+
+        const form = document.getElementById('quizForm');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            let score = 0;
+            const resultsContainer = document.getElementById('results');
+            const scoreDisplay = document.getElementById('score');
+            const feedbackDisplay = document.getElementById('feedback');
+
+            // Loop through each question to check the answer
+            for (const questionId in correctAnswers) {
+                const selectedOption = form.elements[questionId].value;
+                const correctAnswer = correctAnswers[questionId];
+                const questionElement = document.querySelector(`input[name="${questionId}"]`).closest('.question-card');
+                const correctLabel = questionElement.querySelector(`label[for="${questionId}${correctAnswer}"]`);
+                const iconSpan = correctLabel.querySelector('.animated-icon');
+
+                // Clear previous classes and animations
+                const allLabels = questionElement.querySelectorAll('.option-label');
+                allLabels.forEach(label => {
+                    label.classList.remove('correct-answer', 'wrong-answer');
+                    const labelIcon = label.querySelector('.animated-icon');
+                    if(labelIcon) {
+                        labelIcon.classList.remove('show');
+                        labelIcon.innerHTML = ''; // Clear icon
+                    }
+                });
+
+                // Add correct answer class and icon
+                correctLabel.classList.add('correct-answer');
+                iconSpan.innerHTML = '<svg class="h-8 w-8 text-emerald-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>';
+                iconSpan.classList.add('show');
+
+                if (selectedOption) {
+                    if (selectedOption === correctAnswer) {
+                        score++;
+                    } else {
+                        // Mark the wrong answer and add a red X icon
+                        const wrongLabel = questionElement.querySelector(`label[for="${questionId}${selectedOption}"]`);
+                        wrongLabel.classList.add('wrong-answer');
+                        const wrongIconSpan = wrongLabel.querySelector('.animated-icon');
+                        wrongIconSpan.innerHTML = '<svg class="h-8 w-8 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>';
+                        wrongIconSpan.classList.add('show');
+                    }
+                }
+            }
+
+            // Display results
+            scoreDisplay.textContent = `You scored ${score} out of 10!`;
+            if (score >= 8) {
+                feedbackDisplay.textContent = "Congratulations! You're a CapCut master!";
+                feedbackDisplay.className = "text-lg text-center font-bold text-emerald-400 animate-pulse";
+            } else if (score >= 5) {
+                feedbackDisplay.textContent = "Great job! You're on your way to becoming a pro!";
+                feedbackDisplay.className = "text-lg text-center font-bold text-yellow-400";
+            } else {
+                feedbackDisplay.textContent = "Keep practicing! You'll get the hang of it!";
+                feedbackDisplay.className = "text-lg text-center font-bold text-red-400";
+            }
+            resultsContainer.classList.remove('hidden');
+            
+            // Disable the form after submission to prevent re-submission
+            const allInputs = form.querySelectorAll('input[type="radio"]');
+            allInputs.forEach(input => input.disabled = true);
+            form.querySelector('button[type="submit"]').disabled = true;
+        });
+    </script>
+</body>
+</html>
+
